@@ -23,11 +23,16 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../views', 'twill-block-templates');
+        $this->loadViewsFrom(__DIR__ . '/../views', 'twill-form-templates');
 
         Blade::include(
-            'twill-block-templates::template-field',
-            'blockTemplateFormField'
+            'twill-form-templates::template-field',
+            'twillFormTemplateField'
+        );
+
+        Blade::include(
+            'twill-form-templates::template-form',
+            'twillFormTemplate'
         );
     }
 }
