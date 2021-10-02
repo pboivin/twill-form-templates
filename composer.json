@@ -1,0 +1,24 @@
+{
+    "name": "pboivin/twill-form-templates",
+    "authors": [
+        {
+            "name": "Patrick Boivin",
+            "email": "pboivin@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PBoivin\\TwillFormTemplates\\ServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "PBoivin\\TwillFormTemplates\\": "src/"
+        }
+    },
+    "require": {
+        "area17/twill": "^2.0"
+    }
+}
