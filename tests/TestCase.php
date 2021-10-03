@@ -2,12 +2,12 @@
 
 namespace Tests;
 
-use Illuminate\Support\Facades\File;
-use A17\Twill\TwillServiceProvider;
-use PBoivin\TwillFormTemplates\TwillFormTemplatesServiceProvider;
-use Orchestra\Testbench\TestCase as BaseTestCase;
-use Illuminate\Support\Facades\Hash;
 use A17\Twill\Models\User;
+use A17\Twill\TwillServiceProvider;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use Orchestra\Testbench\TestCase as BaseTestCase;
+use PBoivin\TwillFormTemplates\TwillFormTemplatesServiceProvider;
 
 class TestCase extends BaseTestCase
 {
