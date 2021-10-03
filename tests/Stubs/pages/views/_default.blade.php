@@ -1,5 +1,3 @@
 @section('contentFields')
-    <div>
-        This is form._default
-    </div>
+    This is the default template
 @stop

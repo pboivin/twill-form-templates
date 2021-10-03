@@ -65,7 +65,9 @@ class TestCase extends BaseTestCase
 
     protected function cleanDirectories()
     {
+        File::cleanDirectory(base_path('app'));
         File::cleanDirectory(base_path('routes'));
+        File::cleanDirectory(base_path('resources/views/admin'));
     }
 
     protected function copyStubs($filesMap)

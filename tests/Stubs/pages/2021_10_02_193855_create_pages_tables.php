@@ -10,13 +10,17 @@ class CreatePagesTables extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             createDefaultTableFields($table);
+
             $table->integer('position')->unsigned()->nullable();
+
             $table->string('template', 50)->nullable();
         });
 
         Schema::create('page_translations', function (Blueprint $table) {
             createDefaultTranslationsTableFields($table, 'page');
+
             $table->string('title', 200)->nullable();
+
             $table->text('description')->nullable();
         });
 
