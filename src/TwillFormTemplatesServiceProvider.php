@@ -5,7 +5,7 @@ namespace PBoivin\TwillFormTemplates;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class ServiceProvider extends BaseServiceProvider
+class TwillFormTemplatesServiceProvider extends BaseServiceProvider
 {
     public function register()
     {

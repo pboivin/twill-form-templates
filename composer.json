@@ -6,19 +6,28 @@
             "email": "pboivin@gmail.com"
         }
     ],
-    "extra": {
-        "laravel": {
-            "providers": [
-                "PBoivin\\TwillFormTemplates\\ServiceProvider"
-            ]
-        }
+    "require": {
+        "area17/twill": "^2.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.21"
     },
     "autoload": {
         "psr-4": {
             "PBoivin\\TwillFormTemplates\\": "src/"
         }
     },
-    "require": {
-        "area17/twill": "^2.0"
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "vendor/orchestra/testbench-core/laravel/app",
+            "Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PBoivin\\TwillFormTemplates\\TwillFormTemplatesServiceProvider"
+            ]
+        }
     }
 }
