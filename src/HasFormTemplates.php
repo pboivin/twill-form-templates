@@ -36,7 +36,7 @@ trait HasFormTemplates
      */
     public function getAvailableFormTemplatesAttribute()
     {
-        return $this->blockTemplates['options'] ?? [];
+        return $this->formTemplates['options'] ?? [];
     }
 
     /**
@@ -44,7 +44,7 @@ trait HasFormTemplates
      */
     public function getDefaultFormTemplateAttribute()
     {
-        return $this->blockTemplates['default'] ?? null;
+        return $this->formTemplates['default'] ?? null;
     }
 
     /**
