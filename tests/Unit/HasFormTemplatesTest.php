@@ -22,17 +22,17 @@ class HasFormTemplatesTest extends TestCase
         $this->formTemplates = [
             'options' => [
                 [
-                    'name' => 'one',
+                    'value' => 'one',
                     'label' => 'One',
                     'block_selection' => ['lorem'],
                 ],
                 [
-                    'name' => 'two',
+                    'value' => 'two',
                     'label' => 'Two',
                     'block_selection' => ['lorem', 'ipsum'],
                 ],
                 [
-                    'name' => 'three',
+                    'value' => 'three',
                     'label' => 'Three',
                     'block_selection' => ['lorem', 'ipsum', 'dolor'],
                 ],

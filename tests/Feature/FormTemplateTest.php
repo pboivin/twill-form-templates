@@ -19,6 +19,7 @@ class FormTemplateTest extends TestCase
             'pages/PageSlug.php' => app_path('Models/Slugs/PageSlug.php'),
             'pages/PageTranslation.php' => app_path('Models/Translations/PageTranslation.php'),
             'pages/views/form.blade.php' => resource_path('views/admin/pages/form.blade.php'),
+
             'admin.php' => base_path('routes/admin.php'),
         ]);
     }

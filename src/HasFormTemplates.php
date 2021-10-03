@@ -49,7 +49,7 @@ trait HasFormTemplates
         }
 
         if ($this->available_form_templates[0] ?? false) {
-            return $this->available_form_templates[0]['name'] ?? null;
+            return $this->available_form_templates[0]['value'] ?? null;
         }
 
         return null;
@@ -91,7 +91,7 @@ trait HasFormTemplates
     public function getCurrentTemplateOptions()
     {
         return collect($this->available_form_templates)->firstWhere(
-            'name',
+            'value',
             $this->current_template_value
         );
     }
