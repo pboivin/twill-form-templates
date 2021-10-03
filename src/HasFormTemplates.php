@@ -44,7 +44,15 @@ trait HasFormTemplates
      */
     public function getDefaultFormTemplateAttribute()
     {
-        return $this->formTemplates['default'] ?? null;
+        if ($this->formTemplates['default'] ?? false) {
+            return $this->formTemplates['default'];
+        }
+
+        if ($this->available_form_templates[0] ?? false) {
+            return $this->available_form_templates[0]['name'] ?? null;
+        }
+
+        return null;
     }
 
     /**
@@ -80,10 +88,10 @@ trait HasFormTemplates
     /**
      * @return array|null
      */
-    protected function getCurrentTemplateOptions()
+    public function getCurrentTemplateOptions()
     {
         return collect($this->available_form_templates)->firstWhere(
-            'zzz',
+            'name',
             $this->current_template_value
         );
     }
