@@ -2,9 +2,9 @@
 
 namespace PBoivin\TwillFormTemplates;
 
-trait HandleBlockTemplates
+trait HandleFormTemplates
 {
-    public function afterSaveHandleBlockTemplates($object, $fields)
+    public function afterSaveHandleFormTemplates($object, $fields)
     {
         if ($object->wasRecentlyCreated) {
             $object->prefillBlockSelection();

@@ -23,7 +23,7 @@
     @formField('select', [
         'name' => $instance->template_field_name,
         'label' => $instance->template_field_label,
-        'default' => $instance->default_block_template,
-        'options' => $instance->available_block_templates,
+        'default' => $instance->default_form_template,
+        'options' => $instance->available_form_templates,
     ])
 @endif
