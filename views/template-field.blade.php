@@ -1,29 +1,29 @@
 @php
-    $editAfterCreate = $editAfterCreate ?? false;
-    $hideAfterCreate = $hideAfterCreate ?? false;
+    $tft_editAfterCreate = $tft_editAfterCreate ?? false;
+    $tft_hideAfterCreate = $tft_hideAfterCreate ?? false;
 
-    if (!isset($model)) {
-        $modelName = Str::studly(Str::singular($moduleName));
-        $model = Config::get('twill.namespace', 'App') . '\\Models\\' . $modelName;
+    if (!isset($tft_model)) {
+        $tft_modelName = Str::studly(Str::singular($moduleName));
+        $tft_model = Config::get('twill.namespace', 'App') . '\\Models\\' . $tft_modelName;
     }
 
-    $instance = App::make($model);
-    $shouldEdit = !isset($item) || $editAfterCreate;
+    $tft_instance = App::make($tft_model);
+    $shouldEdit = !isset($item) || $tft_editAfterCreate;
 @endphp
 
 @if (!$shouldEdit)
-    @if (!$hideAfterCreate)
+    @if (!$tft_hideAfterCreate)
         @formField('input', [
             'name' => 'current_template_label',
-            'label' => $instance->template_field_label,
+            'label' => $tft_instance->template_field_label,
             'disabled' => true,
         ])
     @endif
 @else
     @formField('select', [
-        'name' => $instance->template_field_name,
-        'label' => $instance->template_field_label,
-        'default' => $instance->default_form_template,
-        'options' => $instance->available_form_templates,
+        'name' => $tft_instance->template_field_name,
+        'label' => $tft_instance->template_field_label,
+        'default' => $tft_instance->default_form_template,
+        'options' => $tft_instance->available_form_templates,
     ])
 @endif

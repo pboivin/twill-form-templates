@@ -1,9 +1,9 @@
 @php
-    $prefix = $prefix ?? "admin";
+    $tft_prefix = $tft_prefix ?? "admin";
 @endphp
 
 @includeFirst([
-    "{$prefix}.{$moduleName}._{$item->current_template_value}",
-    "{$prefix}.{$moduleName}._default",
+    "{$tft_prefix}.{$moduleName}._{$item->current_template_value}",
+    "{$tft_prefix}.{$moduleName}._default",
     "twill-form-templates::_template-not-found",
 ])
