@@ -8,6 +8,18 @@ This package is a simple solution to add a `template` field to your Twill Module
 
 ![Screenshot of the template field inside the create modal](./screenshot.png)
 
+<br>
+
+**Table of contents**
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Dedicated Form Templates](#dedicated-form-templates)
+- [Using JSON Field Groups](#using-json-field-groups)
+- [Block Editor Templates](#block-editor-templates)
+- [Extending the Package Views](#extending-the-package-views)
+- [License](#license)
+
 ## Installation
 
 ```sh
