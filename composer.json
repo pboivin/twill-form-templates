@@ -6,6 +6,7 @@
             "email": "pboivin@gmail.com"
         }
     ],
+    "license": "MIT",
     "require": {
         "area17/twill": "^2.0"
     },
