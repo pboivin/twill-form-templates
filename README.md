@@ -1,8 +1,8 @@
 # Twill Form Templates
 
 <a href="https://github.com/pboivin/twill-form-templates/actions"><img src="https://github.com/pboivin/twill-form-templates/actions/workflows/phpunit.yml/badge.svg" alt="phpunit tests status"></a>
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
+<a href="https://packagist.org/packages/pboivin/twill-form-templates"><img src="https://poser.pugx.org/pboivin/twill-form-templates/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/pboivin/twill-form-templates"><img src="https://poser.pugx.org/pboivin/twill-form-templates/license.svg" alt="License"></a>
 
 This package is a simple solution to add a `template` field to your Twill Modules and do interesting things with it. It can help you make small variations to your forms based on the selected template, organize your form variations with Blade partials, and prefill the block editor with a selection of blocks when a record is created.
 
