@@ -225,7 +225,7 @@ The file names should follow this format: `_{$template}.blade.php`
 
 If you don't want to create one partial for every template, you can add a default partial that will be used as a fallback:
 
-- resources/views/admin/pages/_default.blade.php
+- `resources/views/admin/pages/_default.blade.php`
 
 ## Using JSON Field Groups
 
@@ -294,7 +294,7 @@ Define all your form fields in `$fieldsGroups`:
     ];
 ```
 
-To keep things organized, you can prefix common fields with `page_`, and page-specific fields with the the template name.
+To keep things organized, you can prefix common fields with `page_`, and page-specific fields with the template name.
 
 
 ### Form View
