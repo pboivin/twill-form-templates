@@ -6,6 +6,8 @@
 
 This package is a simple solution to add a `template` field to your Twill Modules and do interesting things with it. It can help you make small variations to your forms based on the selected template, organize your form variations with Blade partials, and prefill the block editor with a selection of blocks when a record is created.
 
+![Screenshot of the template field inside the create modal](./screenshot.png)
+
 ## Installation
 
 ```sh
