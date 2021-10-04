@@ -69,7 +69,7 @@ Then run the migrations:
 php artisan migrate
 ```
 
-### Upate the Model
+### Update the Model
 
 Add the `HasFormTemplates` trait and the new field to `$fillable`:
 
@@ -121,7 +121,7 @@ In the same file, define the values needed for your template field:
 
 Here, we define 3 templates for the core pages of our site (`home`, `about`, `contact`) and 1 that can be used more freely to create customized pages with the block editor (`custom_page`).
 
-### Upate the Repository
+### Update the Repository
 
 Add the `HandleFormTemplates` trait:
 
@@ -336,6 +336,8 @@ You can use JSON fields like regular fields in your forms:
             'label' => 'Footer Text',
         ])
     @endif
+    
+    // ...
 ```
 
 ## Block Editor Templates
@@ -344,7 +346,7 @@ Form templates are a great fit for pages that share a lot of common fields. Howe
 
 ### Create Some Blocks
 
-Let's create some blocks to complete to complete this example:
+Let's create some blocks to complete this example:
 
 ```sh
 php artisan twill:make:block page-header
@@ -385,7 +387,7 @@ public $formTemplates = [
             'block_selection' => ['page-header', 'text', 'banner', 'text'],
         ],
     ],
-    'default' => 'free_form'
+    'default' => 'custom_page'
 ];
 ```
 
