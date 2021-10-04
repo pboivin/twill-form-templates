@@ -202,7 +202,6 @@ The method presented above helps you introduce minor variations in your forms fo
 
 ### Update the Form View
 
-
 ```blade
 // update file: resources/views/admin/pages/form.blade.php
 
@@ -252,7 +251,6 @@ Along with the `template` field, define a `content` field:
     // ...
 ```
 
-
 ### Update the Model
 
 Add the new field to `$fillable`:
@@ -270,7 +268,6 @@ Add the new field to `$fillable`:
         'content',
     ];
 ```
-
 
 ### Update the Repository
 
@@ -296,10 +293,9 @@ Define all your form fields in `$fieldsGroups`:
 
 To keep things organized, you can prefix common fields with `page_`, and page-specific fields with the template name.
 
-
 ### Form View
 
-You can use JSON fields like regualar fields in your forms:
+You can use JSON fields like regular fields in your forms:
 
 ```blade
 // update file: resources/views/admin/pages/form.blade.php
@@ -346,7 +342,7 @@ php artisan twill:make:block banner
 
 ### Update the Model
 
-In our `$formTemplates` configuration, we'll add a new template (legal) for text-only pages such as Terms & Conditions, and we'll define a block selection for the 2 templates that support a block editor:
+In our `$formTemplates` configuration, we'll add a new template (`legal`) for text-only pages such as Terms & Conditions. Then, we'll define a block selection for our 2 templates that support a block editor:
 
 ```php
 // update file: app/Models/Page.php
