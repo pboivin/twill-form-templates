@@ -378,7 +378,7 @@ public $formTemplates = [
         ],
         [
             'value' => 'legal',
-            'label' => 'legal',
+            'label' => 'Legal',
             'block_selection' => ['text'],
         ],
         [
@@ -391,9 +391,9 @@ public $formTemplates = [
 ];
 ```
 
-When we create a page with the `legal` template, prefill the block editor with 1 `text` blocks.
+When we create a page with the `legal` template, the block editor will be prefilled with 1 `text` block.
 
-When we create a page with the `custom_pages` template, prefill the block editor with 4 blocks.
+When we create a page with the `custom_page` template, the block editor will be prefilled with 4 blocks.
 
 ## Extending the Package Views
 
