@@ -21,6 +21,9 @@ class TestCase extends BaseTestCase
      */
     protected function getPackageProviders($app)
     {
+        // this seems to be required to support capsule tests
+        $app->instance('autoloader', require __DIR__ . '/../vendor/autoload.php');
+
         return [
             TwillServiceProvider::class,
             TwillFormTemplatesServiceProvider::class,
@@ -67,15 +70,23 @@ class TestCase extends BaseTestCase
     {
         File::cleanDirectory(base_path('app'));
         File::cleanDirectory(base_path('routes'));
-        File::cleanDirectory(base_path('resources/views/admin'));
+        File::cleanDirectory(resource_path('views'));
+        File::delete(config_path('twill.php'));
+        File::delete(config_path('twill-navigation.php'));
     }
 
     protected function copyStubs($filesMap)
     {
         foreach ($filesMap as $source => $destination) {
+            $sourcePath = __DIR__ . '/Stubs/' . $source;
+
             File::ensureDirectoryExists(dirname($destination));
 
-            File::copy(__DIR__ . '/Stubs/' . $source, $destination);
+            if (File::isDirectory($sourcePath)) {
+                File::copyDirectory($sourcePath, $destination);
+            } else {
+                File::copy($sourcePath, $destination);
+            }
         }
     }
 
