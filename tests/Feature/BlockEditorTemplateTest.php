@@ -29,11 +29,6 @@ class BlockEditorTemplateTest extends TestCase
         ]);
     }
 
-    protected function afterSetup()
-    {
-        $this->loginSuperAdmin();
-    }
-
     protected function createArticle($title = 'Lorem ipsum', $template = 'full_article')
     {
         return app(ArticleRepository::class)->create([
