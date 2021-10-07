@@ -242,7 +242,7 @@ If you don't want to create one partial for every template, you can add a defaul
 
 With this approach, your `pages` database table need to contain all possible columns for the `pages` module. Again, this works well for a small number of variations but can start to feel ugly when all your pages have a different set of fields.
 
-For this, you can use a built-in Twill feature to group all your form fields into a single single JSON column in your table.
+For this, you can use a built-in Twill feature to group all your form fields into a single JSON column in your table.
 
 ### Update the Migration
 
