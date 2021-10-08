@@ -1,5 +1,11 @@
 # Release Notes for Twill Form Templates
 
+## v0.1.3
+
+### Improved
+- Add label translations and update documentation https://github.com/pboivin/twill-form-templates/pull/1
+
+
 ## v0.1.2
 
 ### Fixed
