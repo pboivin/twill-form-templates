@@ -17,6 +17,8 @@ This package is a simple solution to add a `template` field to your Twill Module
 - [Dedicated Form Templates](#dedicated-form-templates)
 - [Using JSON Field Groups](#using-json-field-groups)
 - [Block Editor Templates](#block-editor-templates)
+- [Custom Template Field](#custom-template-field)
+- [Working With Translations](#working-with-translations)
 - [Extending the Package Views](#extending-the-package-views)
 - [License](#license)
 
