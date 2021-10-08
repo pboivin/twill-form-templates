@@ -411,6 +411,42 @@ You can customize the `template` field name and label with the `$templateField` 
 
 Of course, the field name also has to be modified in the migration.
 
+## Working With Translations
+
+Through the constructor, you can use the `twillTrans()` helper to translate all labels according to the user's language preference in the CMS:
+
+```php
+// update file: app/Models/Page.php
+
+
+    public function __construct(array $attributes = [])
+    {
+        $this->templateField = [
+            'name' => 'template',
+            'label' => twillTrans('app.template_label'),
+        ];
+
+        $this->formTemplates = [
+            'options' => [
+                [
+                    'value' => 'home',
+                    'label' => twillTrans('app.home_page'),
+                ],
+                [
+                    'value' => 'about',
+                    'label' => twillTrans('app.about_page'),
+                ],
+
+                // ...
+            ],
+        ];
+
+        parent::__construct($attributes);
+    }
+```
+
+You can find more information on string translations in the [Laravel Documentation](https://laravel.com/docs/8.x/localization#defining-translation-strings).
+
 ## Extending the Package Views
 
 If you wish to customize the built-in views from this package, you can publish them to your project by running:
