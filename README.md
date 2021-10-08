@@ -395,6 +395,22 @@ When we create a page with the `legal` template, the block editor will be prefil
 
 When we create a page with the `custom_page` template, the block editor will be prefilled with 4 blocks.
 
+## Custom Template Field
+
+You can customize the `template` field name and label with the `$templateField` property in your Model:
+
+```php
+// update file: app/Models/Page.php
+
+
+    public $templateField = [
+        'name' => 'page_template',
+        'label' => 'Page Template',
+    ];
+```
+
+Of course, the field name also has to be modified in the migration.
+
 ## Extending the Package Views
 
 If you wish to customize the built-in views from this package, you can publish them to your project by running:
