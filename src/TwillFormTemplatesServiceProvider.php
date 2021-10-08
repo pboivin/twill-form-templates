@@ -13,21 +13,22 @@ class TwillFormTemplatesServiceProvider extends BaseServiceProvider
 
     public function boot()
     {
+        $this->loadTranslations();
+
         $this->loadViews();
 
         $this->extendBlade();
     }
 
-    private function extendBlade()
+    private function loadTranslations()
     {
-        Blade::include(
-            'twill-form-templates::template-field',
-            'twillFormTemplateField'
-        );
+        $path = __DIR__ . '/../lang';
 
-        Blade::include(
-            'twill-form-templates::template-form',
-            'twillFormTemplate'
+        $this->loadTranslationsFrom($path, 'twill-form-templates');
+
+        $this->publishes(
+            [$path => resource_path('lang/vendor/twill-form-templates')],
+            'lang'
         );
     }
 
@@ -40,6 +41,19 @@ class TwillFormTemplatesServiceProvider extends BaseServiceProvider
         $this->publishes(
             [$path => resource_path('views/vendor/twill-form-templates')],
             'views'
+        );
+    }
+
+    private function extendBlade()
+    {
+        Blade::include(
+            'twill-form-templates::template-field',
+            'twillFormTemplateField'
+        );
+
+        Blade::include(
+            'twill-form-templates::template-form',
+            'twillFormTemplate'
         );
     }
 }
