@@ -28,7 +28,7 @@ trait HasFormTemplates
      */
     public function getTemplateFieldLabelAttribute()
     {
-        return $this->templateField['label'] ?? 'Template';
+        return $this->templateField['label'] ?? twillTrans('twill-form-templates::lang.template');
     }
 
     /**

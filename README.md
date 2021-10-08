@@ -17,6 +17,8 @@ This package is a simple solution to add a `template` field to your Twill Module
 - [Dedicated Form Templates](#dedicated-form-templates)
 - [Using JSON Field Groups](#using-json-field-groups)
 - [Block Editor Templates](#block-editor-templates)
+- [Custom Template Field](#custom-template-field)
+- [Working With Translations](#working-with-translations)
 - [Extending the Package Views](#extending-the-package-views)
 - [License](#license)
 
@@ -156,7 +158,7 @@ To enable users to select a template when creating a new page, we need to extend
     'onChange' => 'formatPermalink'
 ])
 
-@twillFormTemplateField
+@twillFormTemplateField()
 
 @if ($permalink ?? true)
     @formField('input', [
@@ -220,7 +222,7 @@ The method presented above helps you introduce minor variations in your forms fo
 
 @extends('twill::layouts.form')
 
-@twillFormTemplate
+@twillFormTemplate()
 ```
 
 This uses a new `@twillFormTemplate` directive to select the appropriate partial.
@@ -362,45 +364,97 @@ In our `$formTemplates` configuration, we'll add a new template (`legal`) for te
 // update file: app/Models/Page.php
 
 
-public $formTemplates = [
-    'options' => [
-        [
-            'value' => 'home',
-            'label' => 'Home',
+    public $formTemplates = [
+        'options' => [
+            [
+                'value' => 'home',
+                'label' => 'Home',
+            ],
+            [
+                'value' => 'about',
+                'label' => 'About',
+            ],
+            [
+                'value' => 'contact',
+                'label' => 'Contact',
+            ],
+            [
+                'value' => 'legal',
+                'label' => 'Legal',
+                'block_selection' => ['text'],
+            ],
+            [
+                'value' => 'custom_page',
+                'label' => 'Custom Page',
+                'block_selection' => ['page-header', 'text', 'banner', 'text'],
+            ],
         ],
-        [
-            'value' => 'about',
-            'label' => 'About',
-        ],
-        [
-            'value' => 'contact',
-            'label' => 'Contact',
-        ],
-        [
-            'value' => 'legal',
-            'label' => 'Legal',
-            'block_selection' => ['text'],
-        ],
-        [
-            'value' => 'custom_page',
-            'label' => 'Custom Page',
-            'block_selection' => ['page-header', 'text', 'banner', 'text'],
-        ],
-    ],
-    'default' => 'custom_page'
-];
+        'default' => 'custom_page'
+    ];
 ```
 
 When we create a page with the `legal` template, the block editor will be prefilled with 1 `text` block.
 
 When we create a page with the `custom_page` template, the block editor will be prefilled with 4 blocks.
 
+## Custom Template Field
+
+You can customize the `template` field name and label with the `$templateField` property in your Model:
+
+```php
+// update file: app/Models/Page.php
+
+
+    public $templateField = [
+        'name' => 'page_template',
+        'label' => 'Page Template',
+    ];
+```
+
+Of course, the field name also has to be modified in the migration.
+
+## Working With Translations
+
+Through the constructor, you can use the `twillTrans()` helper to translate all labels according to the user's language preference in the CMS:
+
+```php
+// update file: app/Models/Page.php
+
+
+    public function __construct(array $attributes = [])
+    {
+        $this->templateField = [
+            'name' => 'template',
+            'label' => twillTrans('app.template_label'),
+        ];
+
+        $this->formTemplates = [
+            'options' => [
+                [
+                    'value' => 'home',
+                    'label' => twillTrans('app.home_page'),
+                ],
+                [
+                    'value' => 'about',
+                    'label' => twillTrans('app.about_page'),
+                ],
+
+                // ...
+            ],
+        ];
+
+        parent::__construct($attributes);
+    }
+```
+
+You can find more information on string translations in the [Laravel Documentation](https://laravel.com/docs/8.x/localization#defining-translation-strings).
+
 ## Extending the Package Views
 
 If you wish to customize the built-in views from this package, you can publish them to your project by running:
 
 ```sh
-php artisan vendor:publish --provider='PBoivin\TwillFormTemplates\TwillFormTemplatesServiceProvider'
+php artisan vendor:publish --provider='PBoivin\TwillFormTemplates\TwillFormTemplatesServiceProvider' --tag=views
 ```
 
 ## License
