@@ -397,6 +397,23 @@ When we create a page with the `legal` template, the block editor will be prefil
 
 When we create a page with the `custom_page` template, the block editor will be prefilled with 4 blocks.
 
+### Update the Form
+
+We want to show the `block_editor` field on `legal` pages as well as custom pages:
+
+```blade
+// update file: resources/views/admin/pages/form.blade.php
+
+
+@section('contentFields')
+    ...
+
+    @if (in_array($item->template, ['custom_page', 'legal']))
+        @formField('block_editor')
+    @endif
+@stop
+```
+
 ## Custom Template Field
 
 You can customize the `template` field name and label with the `$templateField` property in your Model:
