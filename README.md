@@ -414,6 +414,25 @@ We want to show the `block_editor` field on `legal` pages as well as custom page
 @stop
 ```
 
+### Named Block Editors
+
+The above configuration is used for modules with a single block editor (`default`). Use the following configuration for multiple block editors:
+
+```php
+    // ...
+
+    [
+        'value' => 'custom_page',
+        'label' => 'Custom Page',
+        'block_selection' => [
+            'default' => ['text', 'banner', 'text'],  // Prefill the default block editor.
+            'header' => ['page-header'],  // Prefill the `header` named block editor.
+        ],
+    ],
+
+    // ...
+```
+
 ## Custom Template Field
 
 You can customize the `template` field name and label with the `$templateField` property in your Model:
