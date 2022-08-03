@@ -10,7 +10,7 @@ use A17\Twill\Repositories\Behaviors\HandleFiles;
 use A17\Twill\Repositories\Behaviors\HandleRevisions;
 use A17\Twill\Repositories\ModuleRepository;
 use App\Models\Page;
-use PBoivin\TwillFormTemplates\HandleFormTemplates;
+use Pboivin\TwillFormTemplates\HandleFormTemplates;
 
 class PageRepository extends ModuleRepository
 {

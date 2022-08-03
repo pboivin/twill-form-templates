@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use A17\Twill\Models\Model;
-use PBoivin\TwillFormTemplates\HasFormTemplates;
+use Pboivin\TwillFormTemplates\HasFormTemplates;
 
 class Item extends Model
 {

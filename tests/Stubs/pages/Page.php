@@ -11,7 +11,7 @@ use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
-use PBoivin\TwillFormTemplates\HasFormTemplates;
+use Pboivin\TwillFormTemplates\HasFormTemplates;
 
 class Page extends Model implements Sortable
 {

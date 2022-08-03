@@ -7,7 +7,7 @@ use A17\Twill\TwillServiceProvider;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use PBoivin\TwillFormTemplates\TwillFormTemplatesServiceProvider;
+use Pboivin\TwillFormTemplates\TwillFormTemplatesServiceProvider;
 
 class TestCase extends BaseTestCase
 {

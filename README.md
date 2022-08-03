@@ -79,7 +79,7 @@ Add the `HasFormTemplates` trait and the new field to `$fillable`:
 // update file: app/Models/Page.php
 
 
-use PBoivin\TwillFormTemplates\HasFormTemplates;
+use Pboivin\TwillFormTemplates\HasFormTemplates;
 
 class Page extends Model
 {
@@ -131,7 +131,7 @@ Add the `HandleFormTemplates` trait:
 // update file: app/Repositories/PageRepository.php
 
 
-use PBoivin\TwillFormTemplates\HandleFormTemplates;
+use Pboivin\TwillFormTemplates\HandleFormTemplates;
 
 class PageRepository extends ModuleRepository
 {
@@ -414,6 +414,25 @@ We want to show the `block_editor` field on `legal` pages as well as custom page
 @stop
 ```
 
+### Named Block Editors
+
+The above configuration is used for modules with a single block editor (`default`). Use the following configuration for multiple block editors:
+
+```php
+    // ...
+
+    [
+        'value' => 'custom_page',
+        'label' => 'Custom Page',
+        'block_selection' => [
+            'default' => ['text', 'banner', 'text'],  // Prefill the default block editor.
+            'header' => ['page-header'],  // Prefill the `header` named block editor.
+        ],
+    ],
+
+    // ...
+```
+
 ## Custom Template Field
 
 You can customize the `template` field name and label with the `$templateField` property in your Model:
@@ -471,7 +490,7 @@ You can find more information on string translations in the [Laravel Documentati
 If you wish to customize the built-in views from this package, you can publish them to your project by running:
 
 ```sh
-php artisan vendor:publish --provider='PBoivin\TwillFormTemplates\TwillFormTemplatesServiceProvider' --tag=views
+php artisan vendor:publish --provider='Pboivin\TwillFormTemplates\TwillFormTemplatesServiceProvider' --tag=views
 ```
 
 ## License

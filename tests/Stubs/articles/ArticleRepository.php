@@ -10,7 +10,7 @@ use A17\Twill\Repositories\Behaviors\HandleFiles;
 use A17\Twill\Repositories\Behaviors\HandleRevisions;
 use A17\Twill\Repositories\ModuleRepository;
 use App\Models\Article;
-use PBoivin\TwillFormTemplates\HandleFormTemplates;
+use Pboivin\TwillFormTemplates\HandleFormTemplates;
 
 class ArticleRepository extends ModuleRepository
 {
@@ -25,5 +25,14 @@ class ArticleRepository extends ModuleRepository
     public function __construct(Article $model)
     {
         $this->model = $model;
+    }
+
+    public function afterSave($object, $fields)
+    {
+        if (Article::$TEST_USE_NAMED_BLOCK_SELECTION) {
+            $object->setNamedBlockSelection();
+        }
+
+        parent::afterSave($object, $fields);
     }
 }
