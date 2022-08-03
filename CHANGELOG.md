@@ -1,11 +1,14 @@
 # Release Notes for Twill Form Templates
 
-## NEXT (v0.2.0)
+## v1.0.0
 
-### Changed
-- Rename PHP namespace from `PBoivin` to `Pboivin` for consistency with other packages
+### Breaking change
+- Update PHP namespace from `PBoivin` to `Pboivin` for consistency with other packages [0f0d062](https://github.com/pboivin/twill-form-templates/commit/0f0d062b6733970b65c5cbee1d11bb0d43fd2a56)
 
-### Improved
+### Added
+- Add support for named block editors [ba1626d](https://github.com/pboivin/twill-form-templates/commit/ba1626df804b18d3316d7439935c886b4babee5a) [c0cb245](https://github.com/pboivin/twill-form-templates/commit/c0cb245e39c191ec45597f8af8ec9f4844a7df88)
+
+### Chores
 - Add PHP 8.0 and 8.1 to phpunit.yml GitHub action [#3](https://github.com/pboivin/twill-form-templates/pull/3) [6ac6ee9](https://github.com/pboivin/twill-form-templates/commit/6ac6ee9251571ce83210695e737838a05437b160)
 
 
