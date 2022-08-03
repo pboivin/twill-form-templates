@@ -1,12 +1,19 @@
 {
     "name": "pboivin/twill-form-templates",
+    "description": "A template field for Twill CMS Modules.",
+    "keywords": ["laravel", "twill", "cms", "form", "field"],
+    "homepage": "https://github.com/pboivin/twill-form-templates",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/pboivin/twill-form-templates/issues",
+        "source": "https://github.com/pboivin/twill-form-templates"
+    },
     "authors": [
         {
             "name": "Patrick Boivin",
             "email": "pboivin@gmail.com"
         }
     ],
-    "license": "MIT",
     "require": {
         "area17/twill": "^2.0"
     },
