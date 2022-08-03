@@ -30,9 +30,9 @@ jobs:
       uses: actions/cache@v2
       with:
         path: vendor
-        key: ${{ runner.os }}-node-${{ hashFiles('**/composer.json') }}
+        key: ${{ runner.os }}-P${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
-          ${{ runner.os }}-node-
+          ${{ runner.os }}-P${{ matrix.php }}-composer-
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
