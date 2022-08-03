@@ -79,7 +79,7 @@ Add the `HasFormTemplates` trait and the new field to `$fillable`:
 // update file: app/Models/Page.php
 
 
-use PBoivin\TwillFormTemplates\HasFormTemplates;
+use Pboivin\TwillFormTemplates\HasFormTemplates;
 
 class Page extends Model
 {
@@ -131,7 +131,7 @@ Add the `HandleFormTemplates` trait:
 // update file: app/Repositories/PageRepository.php
 
 
-use PBoivin\TwillFormTemplates\HandleFormTemplates;
+use Pboivin\TwillFormTemplates\HandleFormTemplates;
 
 class PageRepository extends ModuleRepository
 {
@@ -471,7 +471,7 @@ You can find more information on string translations in the [Laravel Documentati
 If you wish to customize the built-in views from this package, you can publish them to your project by running:
 
 ```sh
-php artisan vendor:publish --provider='PBoivin\TwillFormTemplates\TwillFormTemplatesServiceProvider' --tag=views
+php artisan vendor:publish --provider='Pboivin\TwillFormTemplates\TwillFormTemplatesServiceProvider' --tag=views
 ```
 
 ## License

@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PBoivin\\TwillFormTemplates\\": "src/"
+            "Pboivin\\TwillFormTemplates\\": "src/"
         }
     },
     "autoload-dev": {
@@ -27,7 +27,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "PBoivin\\TwillFormTemplates\\TwillFormTemplatesServiceProvider"
+                "Pboivin\\TwillFormTemplates\\TwillFormTemplatesServiceProvider"
             ]
         }
     }

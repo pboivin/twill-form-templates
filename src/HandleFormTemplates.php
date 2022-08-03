@@ -1,6 +1,6 @@
 <?php
 
-namespace PBoivin\TwillFormTemplates;
+namespace Pboivin\TwillFormTemplates;
 
 trait HandleFormTemplates
 {

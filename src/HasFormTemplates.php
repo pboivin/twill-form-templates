@@ -1,6 +1,6 @@
 <?php
 
-namespace PBoivin\TwillFormTemplates;
+namespace Pboivin\TwillFormTemplates;
 
 use A17\Twill\Repositories\BlockRepository;
 
