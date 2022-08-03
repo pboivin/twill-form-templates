@@ -26,4 +26,13 @@ class ArticleRepository extends ModuleRepository
     {
         $this->model = $model;
     }
+
+    public function afterSave($object, $fields)
+    {
+        if (Article::$TEST_USE_NAMED_BLOCK_SELECTION) {
+            $object->setNamedBlockSelection();
+        }
+
+        parent::afterSave($object, $fields);
+    }
 }

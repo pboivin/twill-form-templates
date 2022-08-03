@@ -103,16 +103,34 @@ trait HasFormTemplates
      */
     public function prefillBlockSelection()
     {
-        $i = 1;
+        $blockSelection = $this->current_template_block_selection ?: [];
 
-        foreach ($this->current_template_block_selection as $blockType) {
-            app(BlockRepository::class)->create([
-                'blockable_id' => $this->id,
-                'blockable_type' => static::class,
-                'position' => $i++,
-                'content' => '{}',
-                'type' => $blockType,
-            ]);
+        if (empty($blockSelection)) {
+            return;
+        }
+
+        $firstItem = reset($blockSelection);
+        $blockEditors = [];
+
+        if (is_array($firstItem)) {
+            $blockEditors = $blockSelection;
+        } else {
+            $blockEditors['default'] = $blockSelection;
+        }
+
+        foreach ($blockEditors as $editorName => $editorBlocks) {
+            $i = 1;
+
+            foreach ($editorBlocks as $blockType) {
+                app(BlockRepository::class)->create([
+                    'blockable_id' => $this->id,
+                    'blockable_type' => static::class,
+                    'position' => $i++,
+                    'content' => '{}',
+                    'type' => $blockType,
+                    'editor_name' => $editorName,
+                ]);
+            }
         }
     }
 }

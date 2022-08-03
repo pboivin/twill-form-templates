@@ -65,4 +65,33 @@ class Article extends Model implements Sortable
         'article-references',
         'linked-article',
     ];
+
+    public static $TEST_USE_NAMED_BLOCK_SELECTION = false;
+
+    public function setNamedBlockSelection()
+    {
+        $this->formTemplates = [
+            'options' => [
+                [
+                    'value' => 'full_article',
+                    'label' => 'Full Article',
+                    'block_selection' => [
+                        'default' => ['article-header', 'article-paragraph'],
+                        'footer' => ['article-references'],
+                    ],
+                ],
+                [
+                    'value' => 'linked_article',
+                    'label' => 'Linked Article',
+                    'block_selection' => ['article-header', 'linked-article'],
+                ],
+                [
+                    'value' => 'empty',
+                    'label' => 'Empty',
+                    'block_selection' => [],
+                ],
+            ],
+            'default' => 'full_article',
+        ];
+    }
 }

@@ -37,8 +37,10 @@ class BlockEditorTemplateTest extends TestCase
         ]);
     }
 
-    public function test_can_prefill_block_templates()
+    public function test_can_prefill_default_block_templates()
     {
+        Article::$TEST_USE_NAMED_BLOCK_SELECTION = false;
+
         $this->assertEquals(0, Article::count());
         $this->assertEquals(0, Block::count());
 
@@ -51,8 +53,34 @@ class BlockEditorTemplateTest extends TestCase
         $this->assertEquals(3, $article->blocks->count());
 
         $this->assertEquals(
-            $article->current_template_block_selection,
-            $article->blocks->pluck('type')->toArray()
+            ['article-header', 'article-paragraph', 'article-references'],
+            $article->blocks()->editor('default')->get()->pluck('type')->toArray()
+        );
+    }
+
+    public function test_can_prefill_named_editor_block_templates()
+    {
+        Article::$TEST_USE_NAMED_BLOCK_SELECTION = true;
+
+        $this->assertEquals(0, Article::count());
+        $this->assertEquals(0, Block::count());
+
+        $this->createArticle();
+
+        $this->assertEquals(1, Article::count());
+        $this->assertEquals(3, Block::count());
+
+        $article = Article::first();
+        $this->assertEquals(3, $article->blocks->count());
+
+        $this->assertEquals(
+            ['article-header', 'article-paragraph'],
+            $article->blocks()->editor('default')->get()->pluck('type')->toArray()
+        );
+
+        $this->assertEquals(
+            ['article-references'],
+            $article->blocks()->editor('footer')->get()->pluck('type')->toArray()
         );
     }
 }
