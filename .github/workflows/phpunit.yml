@@ -18,12 +18,16 @@ jobs:
         include:
           - php: '8.2'
             dusk: '7.*'
+            testbench: '7.*'
           - php: '8.1'
             dusk: '7.*'
+            testbench: '7.*'
           - php: '8.0'
             dusk: '7.*'
+            testbench: '7.*'
           - php: '7.4'
             dusk: '6.*'
+            testbench: '6.*'
         exclude:
           - twill: '3.0.0-rc3'
             php: '7.4'
@@ -55,8 +59,7 @@ jobs:
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
       run: |
-        composer require "laravel/dusk:${{ matrix.dusk }}" --no-interaction --no-update
-        composer require "area17/twill:${{ matrix.twill }}" --no-interaction --no-update
+        composer require "orchestra/testbench:${{ matrix.testbench }}" "laravel/dusk:${{ matrix.dusk }}" "area17/twill:${{ matrix.twill }}" --no-interaction --no-update
         composer install --prefer-dist --no-interaction --no-plugins
 
     - name: Run test suite
