@@ -40,8 +40,8 @@ jobs:
 
     - name: Prepare stubs
       run: |
-        [ "2.*" == "${{ matrix.twill }}" ] && ( cd tests && ln -s __stubs__/2.x Stubs )
-        [ "2.*" != "${{ matrix.twill }}" ] && ( cd tests && ln -s __stubs__/3.x Stubs )
+        cd tests
+        bash prepare_stubs.sh "${{ matrix.twill }}"
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
