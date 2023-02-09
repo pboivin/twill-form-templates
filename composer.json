@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "area17/twill": "^2.0"
+        "area17/twill": "^2.0|^3.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.21"
