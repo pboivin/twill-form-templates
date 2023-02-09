@@ -14,19 +14,19 @@ class BlockEditorTemplateTest extends TestCase
         $this->copyStubs([
             'articles/2021_10_02_162328_create_articles_tables.php' => database_path('migrations/2021_10_02_162328_create_articles_tables.php'),
             'articles/Article.php' => app_path('Models/Article.php'),
-            'articles/ArticleController.php' => app_path('Http/Controllers/Admin/ArticleController.php'),
+            'articles/ArticleController.php' => app_path('Http/Controllers/'.$this->getAdminNamespace().'/ArticleController.php'),
             'articles/ArticleRepository.php' => app_path('Repositories/ArticleRepository.php'),
             'articles/ArticleRevision.php' => app_path('Models/Revisions/ArticleRevision.php'),
             'articles/ArticleSlug.php' => app_path('Models/Slugs/ArticleSlug.php'),
             'articles/ArticleTranslation.php' => app_path('Models/Translations/ArticleTranslation.php'),
 
-            'blocks/article-header.blade.php' => resource_path('views/admin/blocks/article-header.blade.php'),
-            'blocks/article-paragraph.blade.php' => resource_path('views/admin/blocks/article-paragraph.blade.php'),
-            'blocks/article-references.blade.php' => resource_path('views/admin/blocks/article-references.blade.php'),
-            'blocks/linked-article.blade.php' => resource_path('views/admin/blocks/linked-article.blade.php'),
-
-            'admin.php' => base_path('routes/admin.php'),
+            'blocks/article-header.blade.php' => resource_path('views/'.$this->getViewNamespace().'/blocks/article-header.blade.php'),
+            'blocks/article-paragraph.blade.php' => resource_path('views/'.$this->getViewNamespace().'/blocks/article-paragraph.blade.php'),
+            'blocks/article-references.blade.php' => resource_path('views/'.$this->getViewNamespace().'/blocks/article-references.blade.php'),
+            'blocks/linked-article.blade.php' => resource_path('views/'.$this->getViewNamespace().'/blocks/linked-article.blade.php'),
         ]);
+
+        $this->copyRoutes();
     }
 
     protected function createArticle($title = 'Lorem ipsum', $template = 'full_article')
