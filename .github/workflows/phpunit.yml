@@ -41,8 +41,7 @@ jobs:
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
       run: |
-        [ "2.*" == "${{ matrix.twill }}" ] && ( cd tests && ln -s __stubs__/2.x Stubs )
-        [ "2.*" != "${{ matrix.twill }}" ] && ( cd tests && ln -s __stubs__/3.x Stubs )
+        ( cd tests && ln -s __stubs__/2.x Stubs )
         composer require "area17/twill:${{ matrix.twill }}" --no-interaction --no-update
         composer install --prefer-dist --no-interaction --no-plugins
 
