@@ -90,6 +90,33 @@ class TestCase extends BaseTestCase
         }
     }
 
+    protected function copyRoutes()
+    {
+        if (TwillServiceProvider::VERSION >= '3.0.0') {
+            $this->copyStubs(['routes.php' => base_path('routes/twill.php')]);
+        } else {
+            $this->copyStubs(['routes.php' => base_path('routes/admin.php')]);
+        }
+    }
+
+    protected function getAdminNamespace()
+    {
+        if (TwillServiceProvider::VERSION >= '3.0.0') {
+            return 'Twill';
+        } else {
+            return 'Admin';
+        }
+    }
+
+    protected function getViewNamespace()
+    {
+        if (TwillServiceProvider::VERSION >= '3.0.0') {
+            return 'twill';
+        } else {
+            return 'admin';
+        }
+    }
+
     protected function createSuperAdmin()
     {
         $user = User::make([
@@ -108,7 +135,7 @@ class TestCase extends BaseTestCase
 
     protected function loginSuperAdmin()
     {
-        if (! $this->superAdmin) {
+        if (!$this->superAdmin) {
             $this->superAdmin = $this->createSuperAdmin();
         }
 

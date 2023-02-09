@@ -13,15 +13,15 @@ class FormTemplateTest extends TestCase
         $this->copyStubs([
             'pages/2021_10_02_193855_create_pages_tables.php' => database_path('migrations/2021_10_02_193855_create_pages_tables.php'),
             'pages/Page.php' => app_path('Models/Page.php'),
-            'pages/PageController.php' => app_path('Http/Controllers/Admin/PageController.php'),
+            'pages/PageController.php' => app_path('Http/Controllers/'.$this->getAdminNamespace().'/PageController.php'),
             'pages/PageRepository.php' => app_path('Repositories/PageRepository.php'),
             'pages/PageRevision.php' => app_path('Models/Revisions/PageRevision.php'),
             'pages/PageSlug.php' => app_path('Models/Slugs/PageSlug.php'),
             'pages/PageTranslation.php' => app_path('Models/Translations/PageTranslation.php'),
-            'pages/views/form.blade.php' => resource_path('views/admin/pages/form.blade.php'),
-
-            'admin.php' => base_path('routes/admin.php'),
+            'pages/views/form.blade.php' => resource_path('views/'.$this->getViewNamespace().'/pages/form.blade.php'),
         ]);
+
+        $this->copyRoutes();
     }
 
     protected function afterSetup()
