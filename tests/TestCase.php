@@ -49,7 +49,7 @@ class TestCase extends BaseTestCase
 
         $this->cleanDirectories();
 
-        $this->artisan('twill:update');
+        // $this->artisan('twill:update');
 
         $this->beforeMigrate();
 
