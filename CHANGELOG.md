@@ -1,5 +1,11 @@
 # Release Notes for Twill Form Templates
 
+## v1.1.0
+
+### Added
+- Support Twill 3.x  [#8](https://github.com/pboivin/twill-form-templates/pull/8) [#9](https://github.com/pboivin/twill-form-templates/pull/9) [#10](https://github.com/pboivin/twill-form-templates/pull/10) 
+
+
 ## v1.0.0
 
 ### Breaking change
