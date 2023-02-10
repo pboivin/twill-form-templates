@@ -49,7 +49,12 @@ class TestCase extends BaseTestCase
 
         $this->cleanDirectories();
 
-        $this->artisan('twill:update');
+        if (TwillServiceProvider::VERSION >= '3.0.0') {
+            $this->artisan('twill:update')
+                ->expectsConfirmation('Do you want to run any pending database migrations now?', 'no');
+        } else {
+            $this->artisan('twill:update');
+        }
 
         $this->beforeMigrate();
 
