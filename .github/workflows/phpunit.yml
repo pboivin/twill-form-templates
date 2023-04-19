@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         php: ['8.2', '8.1', '8.0', '7.4']
-        twill: ['3.0.0-rc4', '2.*']
+        twill: ['3.*', '2.*']
         include:
           - php: '8.2'
             dusk: '7.*'
@@ -29,7 +29,7 @@ jobs:
             dusk: '6.*'
             testbench: '6.*'
         exclude:
-          - twill: '3.0.0-rc4'
+          - twill: '3.*'
             php: '7.4'
 
     name: P${{ matrix.php }} T${{ matrix.twill }}
